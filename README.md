@@ -18,11 +18,9 @@ This project analyzes data on Near Earth Objects (NEOs) detected between 1910 an
 
 6- Model Building
 
-7- Evaluation
+7-Insights
 
-8- Insights and Findings
-
-9- Conclusion
+8- Conclusion
 
 
 - Data Description
@@ -109,3 +107,87 @@ Resampled Target Distribution:
 Non-Hazardous (0): 295,037 instances
 
 Hazardous (1): 295,037 instances
+
+- Modeling
+
+Three machine learning models were trained and evaluated: Random Forest, XGBoost, and LightGBM. Below are the details of their performance.
+
+1. Random Forest Model
+
+Performance Metrics:
+
+Accuracy: 0.95
+
+Precision: 0.94
+
+Recall: 0.96
+
+F1-Score: 0.95
+
+ROC-AUC Score: 0.99
+
+2. XGBoost Model
+
+Performance Metrics:
+
+Accuracy: 0.88
+
+Precision: 0.82
+
+Recall: 0.97
+
+F1-Score: 0.89
+
+ROC-AUC Score: 0.95
+
+3. LightGBM Model
+
+Performance Metrics:
+
+Accuracy: 0.87
+
+Precision: 0.81
+
+Recall: 0.97
+
+F1-Score: 0.88
+
+ROC-AUC Score: 0.95
+
+- Insights
+
+Relative Velocity and Hazardous Status:
+Hazardous NEOs tend to have higher relative velocities compared to non-hazardous ones.
+
+Diameter and Hazardous Potential:
+Larger NEOs are more likely to be hazardous, which is consistent with the expected impact potential.
+
+Absolute Magnitude:
+NEOs with lower (brighter) absolute magnitudes are generally less hazardous.
+
+Miss Distance:
+Surprisingly, the miss distance had a very low correlation with hazardous status, suggesting that proximity alone does not determine the risk level.
+
+The data was highly imbalanced, necessitating the use of techniques like SMOTE to ensure fairer model training and evaluation.
+
+Imbalanced datasets can lead to misleading performance metrics, where high accuracy could be a result of predicting only the majority class. Balancing the data helped to address this issue and allowed the models to learn to predict both classes effectively.
+
+The Random Forest model performed exceptionally well across all metrics, with high precision, recall, and F1-score.
+
+The model is particularly strong in distinguishing between hazardous and non-hazardous classes, as indicated by a high ROC-AUC score of 0.99.
+
+XGBoost demonstrated good performance, particularly in terms of recall for the hazardous class, but had a lower precision for non-hazardous predictions.
+
+The high recall indicates the model is excellent at identifying true hazardous cases but is more prone to false positives compared to Random Forest.
+
+LightGBM, similar to XGBoost, had a high recall but struggled with precision, particularly for non-hazardous predictions.
+
+While it effectively identified hazardous cases, its higher rate of false positives compared to Random Forest highlights the trade-offs in its predictions.
+
+- Conclusion
+
+The Random Forest model outperformed the other models with balanced performance across all metrics, making it the best choice for predicting hazardous events in this context.
+
+Both XGBoost and LightGBM showed strong recall, making them suitable if the primary concern is catching all hazardous events, even at the cost of more false positives.
+
+Future improvements could involve hyperparameter tuning and feature engineering to enhance model precision, especially for XGBoost and LightGBM.
