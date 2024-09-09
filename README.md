@@ -65,6 +65,7 @@ Both minimum and maximum estimated diameters are right-skewed, with a few large 
 Relative Velocity:
 
 The distribution of relative velocity is right-skewed, with most NEOs having velocities between 20,000 and 70,000 km/s.
+
 Miss Distance:
 
 The majority of NEOs have miss distances between 10 and 60 million km, with a few close approaches to Earth.
@@ -73,4 +74,38 @@ Hazardous vs. Non-Hazardous NEOs:
 There is a class imbalance, with far more non-hazardous NEOs compared to hazardous ones.
 Correlations:
 
-A heatmap of correlations showed that absolute_magnitude has a moderate negative correlation with is_hazardous, suggesting that brighter objects are less likely to be hazardous.
+- Visualizations
+
+Several histograms, box plots, and pair plots were used to visualize the distributions of key features and explore relationships between variables.
+
+- Data Preprocessing
+
+Encoding Categorical Variables:
+
+Categorical variables (name, orbiting_body, is_hazardous) were encoded using LabelEncoder to convert them into numerical values for model training.
+
+Feature Scaling:
+
+Numerical features (absolute_magnitude, estimated_diameter_min, estimated_diameter_max, relative_velocity, miss_distance) were scaled using StandardScaler to normalize the data and improve model performance.
+
+Feature Selection:
+
+Correlation analysis helped identify the most relevant features for the model. Features with weak correlations with the target (name, neo_id, orbiting_body) were dropped.
+
+Initial Data Distribution:
+
+The initial target variable (is_hazardous) showed an imbalanced distribution:
+
+Non-Hazardous (0): 295,037 instances
+
+Hazardous (1): 43,162 instances
+
+Handling Imbalanced Data with SMOTE:
+
+To address the imbalance in the dataset, we applied Synthetic Minority Oversampling Technique (SMOTE). This technique oversamples the minority class (hazardous) to balance the class distribution, which is crucial for training robust models that do not bias towards the majority class.
+
+Resampled Target Distribution:
+
+Non-Hazardous (0): 295,037 instances
+
+Hazardous (1): 295,037 instances
