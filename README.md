@@ -1,20 +1,31 @@
 # NASA-Nearest-Earth-Objects-1910-2024-
 
-##Project Overview
+- Project Overview
+
 This project analyzes data on Near Earth Objects (NEOs) detected between 1910 and 2024. The goal is to explore the characteristics of NEOs and identify factors associated with hazardous objects. The analysis includes data cleaning, exploratory data analysis, feature engineering, and model building to predict hazardous NEOs.
 
-##Table of Contents
+- Table of Contents:
+
 Installation
+
 Data Description
+
 Data Cleaning
+
 Exploratory Data Analysis (EDA)
+
 Data Preprocessing
+
 Model Building
+
 Evaluation
+
 Insights and Findings
+
 Conclusion
 
-##Data Description
+
+- Data Description
 The dataset contains information about NEOs, including their size, velocity, and whether they are hazardous. Key columns in the dataset:
 
 neo_id: Unique identifier for each NEO.
